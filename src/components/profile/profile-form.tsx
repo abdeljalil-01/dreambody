@@ -84,15 +84,15 @@ export function ProfileForm({ profile }: ProfileFormProps) {
   }
 
   return (
-    <div className="rounded-3xl border border-border/50 bg-card p-8 shadow-premium">
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+    <div className="rounded-3xl border border-border/50 bg-card p-6 shadow-premium sm:p-8">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="name">الاسم</Label>
           <Input id="name" className="h-12 rounded-2xl" {...register("name")} />
           <FieldError message={errors.name?.message} />
         </div>
 
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="age">العمر</Label>
             <Input id="age" type="number" className="font-inter h-12 rounded-2xl" {...register("age")} />

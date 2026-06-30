@@ -6,10 +6,10 @@ interface PageHeaderProps {
 
 export function PageHeader({ title, description, action }: PageHeaderProps) {
   return (
-    <div className="mb-10 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+    <div className="mb-7 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
       <div className="space-y-2">
         {/* Decorative accent */}
-        <div className="mb-3 flex items-center gap-2">
+        <div className="mb-2 flex items-center gap-2">
           <span className="inline-block h-[3px] w-6 rounded-full bg-primary/60" />
           <span className="inline-block h-[3px] w-2 rounded-full bg-primary/30" />
         </div>

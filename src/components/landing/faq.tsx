@@ -50,16 +50,16 @@ export function FAQSection() {
           className="text-center"
         >
           <span className="section-label">الأسئلة</span>
-          <h2 className="mt-5 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
+          <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
             الأسئلة الشائعة
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg text-base text-muted-foreground">
             إجابات على أكثر الأسئلة شيوعاً — إذا لم تجد ما تبحث عنه، تواصل معنا.
           </p>
         </motion.div>
 
         {/* Accordion */}
-        <div className="mx-auto mt-14 max-w-2xl space-y-3">
+        <div className="mx-auto mt-10 max-w-2xl space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (

@@ -180,7 +180,7 @@ body {
    LAYOUT
 ======================== */
 .section-padding {
-  padding-block: clamp(5rem, 9vw, 8rem);
+  padding-block: clamp(3.75rem, 6.5vw, 6rem);
 }
 
 .container-app {

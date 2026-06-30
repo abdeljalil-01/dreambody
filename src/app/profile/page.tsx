@@ -14,7 +14,7 @@ export default async function ProfilePage() {
 
   return (
     <AppLayout>
-      <div className="container-app py-12">
+      <div className="container-app py-8 sm:py-10">
         <PageHeader
           title="الملف الشخصي"
           description="حدّث بياناتك للحصول على نتائج أدق"

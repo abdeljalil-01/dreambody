@@ -25,7 +25,7 @@ export function HistoryPlanDetail({ plan }: HistoryPlanDetailProps) {
   );
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-6">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <p className="text-sm text-muted-foreground">{formatPlanDate(plan.created_at)}</p>
@@ -45,8 +45,8 @@ export function HistoryPlanDetail({ plan }: HistoryPlanDetailProps) {
         </div>
       </div>
 
-      <div className="rounded-3xl border border-border/50 bg-card p-8 shadow-premium">
-        <h2 className="mb-6 text-lg font-semibold">توزيع الماكروز</h2>
+      <div className="rounded-3xl border border-border/50 bg-card p-6 shadow-premium">
+        <h2 className="mb-4 text-lg font-semibold">توزيع الماكروز</h2>
         <MacroChart
           protein={plan.protein}
           carbs={plan.carbs}
@@ -55,7 +55,7 @@ export function HistoryPlanDetail({ plan }: HistoryPlanDetailProps) {
         />
       </div>
 
-      <div className="grid gap-5 lg:grid-cols-2">
+      <div className="grid gap-4 lg:grid-cols-2">
         {MEAL_TYPES.map(({ value, label }) => {
           const meal = mealsByType[value];
           if (!meal) return null;

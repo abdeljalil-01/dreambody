@@ -19,14 +19,14 @@ export function BenefitsSection() {
       <div className="pointer-events-none absolute -right-20 top-1/4 h-72 w-72 rounded-full bg-secondary/[0.05] blur-3xl" />
 
       <div className="container-app relative">
-        <div className="grid items-center gap-16 lg:grid-cols-2">
+        <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12">
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true, margin: "-60px" }}
             transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6"
+            className="space-y-5"
           >
             <span className="section-label">لماذا نحن</span>
             <h2 className="text-[clamp(1.8rem,4vw,2.75rem)] font-bold leading-tight tracking-tight">

@@ -7,7 +7,7 @@ const MealPlanContent = dynamic(
   () => import("@/components/meal-plan/meal-plan-content").then((m) => m.MealPlanContent),
   {
     loading: () => (
-      <div className="flex flex-col items-center justify-center gap-4 py-20">
+      <div className="flex flex-col items-center justify-center gap-4 py-14">
         <Loader2 className="h-8 w-8 animate-spin text-primary" />
       </div>
     ),

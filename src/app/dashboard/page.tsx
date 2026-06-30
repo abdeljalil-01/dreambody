@@ -33,7 +33,7 @@ export default async function DashboardPage() {
 
   return (
     <AppLayout>
-      <div className="container-app space-y-10 py-12">
+      <div className="container-app space-y-7 py-8 sm:py-10">
         <PageHeader
           title="لوحة التحكم"
           description="نظرة شاملة على تقدمك الغذائي"
@@ -56,8 +56,8 @@ export default async function DashboardPage() {
               <StatCard title="الدهون" value={latestPlan.fat} unit="g" icon={Droplets} />
             </div>
 
-            <div className="rounded-3xl border border-border/50 bg-card p-8 shadow-premium">
-              <h2 className="mb-6 text-lg font-semibold">توزيع الماكروز</h2>
+            <div className="rounded-3xl border border-border/50 bg-card p-6 shadow-premium">
+              <h2 className="mb-4 text-lg font-semibold">توزيع الماكروز</h2>
               <MacroChart
                 protein={latestPlan.protein}
                 carbs={latestPlan.carbs}
@@ -77,7 +77,7 @@ export default async function DashboardPage() {
                     </Button>
                   </div>
                 </div>
-                <div className="grid gap-5 lg:grid-cols-2">
+                <div className="grid gap-4 lg:grid-cols-2">
                   {MEAL_TYPES.map(({ value, label }) => {
                     const meal = mealsByType[value];
                     if (!meal) return null;
@@ -101,19 +101,19 @@ export default async function DashboardPage() {
             )}
           </>
         ) : (
-          <div className="rounded-3xl border border-border/50 bg-card p-16 text-center shadow-premium">
+          <div className="rounded-3xl border border-border/50 bg-card p-10 text-center shadow-premium sm:p-12">
             <Salad className="mx-auto mb-4 h-12 w-12 text-muted-foreground" />
             <h2 className="text-lg font-semibold">لا يوجد برنامج غذائي بعد</h2>
             <p className="mx-auto mt-2 max-w-sm text-sm text-muted-foreground">
               ابدأ بحساب احتياجاتك ثم أنشئ برنامجك الغذائي الأول.
             </p>
-            <Button asChild className="mt-8 rounded-2xl">
+            <Button asChild className="mt-6 rounded-2xl">
               <Link href="/calculate">ابدأ الآن</Link>
             </Button>
           </div>
         )}
 
-        <div className="rounded-3xl border border-border/50 bg-muted/30 p-8">
+        <div className="rounded-3xl border border-border/50 bg-muted/30 p-6">
           <div className="mb-5 flex items-center justify-between gap-4">
             <h3 className="text-base font-semibold">إحصائيات</h3>
             {allPlans.length > 0 && (

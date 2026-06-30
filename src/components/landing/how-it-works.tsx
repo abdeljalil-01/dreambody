@@ -54,16 +54,16 @@ export function HowItWorksSection() {
           className="text-center"
         >
           <span className="section-label">الخطوات</span>
-          <h2 className="mt-5 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
+          <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
             كيف يعمل؟
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base leading-relaxed text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
             أربع خطوات بسيطة تفصلك عن جسم أحلامك
           </p>
         </motion.div>
 
         {/* Steps */}
-        <div className="mt-16 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((item, index) => (
             <motion.div
               key={item.step}

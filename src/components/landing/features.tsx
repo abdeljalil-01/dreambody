@@ -171,11 +171,11 @@ export function FeaturesSection() {
           className="max-w-2xl"
         >
           <span className="section-label">المميزات</span>
-          <h2 className="mt-5 text-[clamp(1.8rem,4vw,2.75rem)] font-bold leading-tight tracking-tight">
+          <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold leading-tight tracking-tight">
             أدوات متكاملة{" "}
             <span className="text-gradient">لرحلة تحولك</span>
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-muted-foreground">
+          <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             كل ما تحتاجه في منصة واحدة — مصممة بعناية لتجربة سلسة وفعّالة.
           </p>
         </motion.div>
@@ -185,7 +185,7 @@ export function FeaturesSection() {
           initial="hidden"
           whileInView="show"
           viewport={{ once: true, margin: "-60px" }}
-          className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
+          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
         >
           {features.map((feature, idx) => (
             <FeatureCard key={feature.title} feature={feature} idx={idx} />

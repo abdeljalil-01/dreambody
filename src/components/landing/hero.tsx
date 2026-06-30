@@ -42,7 +42,7 @@ export function HeroSection() {
   }, [mouseX, mouseY]);
 
   return (
-    <section ref={ref} className="relative min-h-[92vh] overflow-hidden flex items-center">
+    <section ref={ref} className="relative flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden">
       {/* Background blobs */}
       <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-0">
         <motion.div
@@ -69,14 +69,14 @@ export function HeroSection() {
         }}
       />
 
-      <div className="container-app relative py-28 lg:py-36">
-        <div className="grid items-center gap-16 lg:grid-cols-[1.1fr_0.9fr]">
+      <div className="container-app relative py-16 sm:py-20 lg:py-24">
+        <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           {/* Left: text */}
           <motion.div
             initial={{ opacity: 0, y: 32 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-9"
+            className="space-y-6"
           >
             {/* Badge */}
             <motion.div
@@ -141,7 +141,7 @@ export function HeroSection() {
             </div>
 
             {/* Stats row */}
-            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border/50 pt-8">
+            <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border/50 pt-5">
               {stats.map((stat, i) => (
                 <motion.div
                   key={stat.label}
@@ -175,12 +175,12 @@ export function HeroSection() {
             <div className="absolute inset-0 rounded-[2.5rem] bg-primary/10 blur-3xl scale-90" />
 
             {/* Main card */}
-            <div className="glass-strong relative overflow-hidden rounded-[2.5rem] p-8 shadow-premium-lg">
+            <div className="glass-strong relative overflow-hidden rounded-[2.5rem] p-6 shadow-premium-lg sm:p-7">
               <div className="absolute inset-x-0 top-0 h-[2px] bg-gradient-to-r from-transparent via-primary/50 to-transparent" />
               <div className="absolute inset-x-0 bottom-0 h-[1px] bg-gradient-to-r from-transparent via-border/60 to-transparent" />
 
               {/* Logo with floating effect */}
-              <div className="animate-float-slow mx-auto flex h-[200px] w-[200px] items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-primary/8 via-accent to-primary/5 p-6 shadow-md">
+              <div className="animate-float-slow mx-auto flex h-[180px] w-[180px] items-center justify-center rounded-[1.75rem] bg-gradient-to-br from-primary/8 via-accent to-primary/5 p-5 shadow-md">
                 <Image
                   src="/logo.png"
                   alt="DreamBody"
@@ -192,7 +192,7 @@ export function HeroSection() {
               </div>
 
               {/* Progress-like bar */}
-              <div className="mt-7 space-y-3">
+              <div className="mt-5 space-y-3">
                 <div className="flex justify-between text-xs text-muted-foreground">
                   <span>توزيع الماكروز اليومي</span>
                   <span className="font-medium text-foreground">1,850 kcal</span>

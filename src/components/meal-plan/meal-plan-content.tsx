@@ -148,7 +148,7 @@ export function MealPlanContent() {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-5xl space-y-8 px-4 py-12 sm:px-6">
+      <div className="mx-auto max-w-5xl space-y-6 px-4 py-8 sm:px-6 sm:py-10">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="space-y-3">
             <Skeleton className="h-9 w-56" />
@@ -160,7 +160,7 @@ export function MealPlanContent() {
           </div>
         </div>
         <Skeleton className="h-48 w-full rounded-2xl" />
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           {Array.from({ length: 4 }).map((_, i) => (
             <div key={i} className="rounded-[1.4rem] border border-border/50 bg-card p-6 shadow-premium">
               <div className="mb-4 space-y-2">
@@ -185,7 +185,7 @@ export function MealPlanContent() {
 
   if (!nutrition) {
     return (
-      <div className="mx-auto max-w-md px-4 py-20 text-center">
+      <div className="mx-auto max-w-md px-4 py-14 text-center">
         <p className="text-muted-foreground">احسب احتياجاتك أولاً.</p>
         <Button asChild className="mt-4">
           <Link href="/calculate">الذهاب للحاسبة</Link>
@@ -195,7 +195,7 @@ export function MealPlanContent() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl space-y-8 px-4 py-12 sm:px-6">
+    <div className="mx-auto max-w-5xl space-y-6 px-4 py-8 sm:px-6 sm:py-10">
       <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold">برنامجك الغذائي</h1>
@@ -226,7 +226,7 @@ export function MealPlanContent() {
       )}
 
       {plan && (
-        <div className="grid gap-6 sm:grid-cols-2">
+        <div className="grid gap-5 sm:grid-cols-2">
           {MEAL_TYPES.map(({ value, label }) => (
             <MealCard
               key={value}

@@ -22,8 +22,8 @@ export function Footer() {
       <div className="pointer-events-none absolute inset-x-0 top-0 h-px bg-gradient-to-r from-transparent via-primary/30 to-transparent" />
       <div className="pointer-events-none absolute inset-0 bg-gradient-to-b from-muted/20 to-muted/5" />
 
-      <div className="container-app relative py-16">
-        <div className="grid gap-12 md:grid-cols-4">
+      <div className="container-app relative py-10 sm:py-12">
+        <div className="grid gap-8 md:grid-cols-4">
           {/* Brand */}
           <div className="md:col-span-2 space-y-4">
             <Logo />
@@ -49,10 +49,10 @@ export function Footer() {
 
           {/* Product links */}
           <div>
-            <h4 className="mb-5 text-xs font-semibold uppercase tracking-widest text-foreground/70">
+            <h4 className="mb-3 text-xs font-semibold uppercase tracking-widest text-foreground/70">
               المنتج
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks.product.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -68,10 +68,10 @@ export function Footer() {
 
           {/* Explore links */}
           <div>
-            <h4 className="mb-5 text-xs font-semibold uppercase tracking-widest text-foreground/70">
+            <h4 className="mb-3 text-xs font-semibold uppercase tracking-widest text-foreground/70">
               اكتشف
             </h4>
-            <ul className="space-y-3">
+            <ul className="space-y-2.5">
               {footerLinks.explore.map((link) => (
                 <li key={link.href}>
                   <Link
@@ -87,7 +87,7 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-8 sm:flex-row">
+        <div className="mt-8 flex flex-col items-center justify-between gap-4 border-t border-border/40 pt-6 sm:flex-row">
           <p className="text-xs text-muted-foreground">
             &copy; {new Date().getFullYear()} DreamBody. جميع الحقوق محفوظة.
           </p>

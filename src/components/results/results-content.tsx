@@ -26,7 +26,7 @@ export function ResultsContent() {
 
   if (loading) {
     return (
-      <div className="mx-auto max-w-5xl space-y-6 px-4 py-12">
+      <div className="mx-auto max-w-5xl space-y-5 px-4 py-8 sm:py-10">
         <Skeleton className="h-8 w-64" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (
@@ -39,7 +39,7 @@ export function ResultsContent() {
 
   if (!result) {
     return (
-      <div className="mx-auto max-w-md px-4 py-20 text-center">
+      <div className="mx-auto max-w-md px-4 py-14 text-center">
         <p className="text-muted-foreground">لا توجد نتائج. ابدأ بالحساب أولاً.</p>
         <Button asChild className="mt-4">
           <Link href="/calculate">احسب احتياجاتك</Link>
@@ -49,7 +49,7 @@ export function ResultsContent() {
   }
 
   return (
-    <div className="mx-auto max-w-5xl space-y-8 px-4 py-12 sm:px-6">
+    <div className="mx-auto max-w-5xl space-y-6 px-4 py-8 sm:px-6 sm:py-10">
       <div>
         <h1 className="text-3xl font-bold">نتائجك الغذائية</h1>
         <p className="mt-2 text-muted-foreground">
@@ -69,8 +69,8 @@ export function ResultsContent() {
         <StatCard title="الدهون" value={result.fat} unit="g" icon={Droplets} />
       </div>
 
-      <div className="rounded-2xl border border-border/40 bg-card p-8">
-        <h2 className="mb-6 text-lg font-semibold">توزيع الماكروز</h2>
+      <div className="rounded-2xl border border-border/40 bg-card p-6">
+        <h2 className="mb-4 text-lg font-semibold">توزيع الماكروز</h2>
         <MacroChart
           protein={result.protein}
           carbs={result.carbs}
@@ -79,7 +79,7 @@ export function ResultsContent() {
         />
       </div>
 
-      <div className="flex justify-center pt-4">
+      <div className="flex justify-center pt-2">
         <Button size="lg" onClick={() => router.push("/meal-plan")}>
           إنشاء البرنامج الغذائي
           <ArrowLeft className="h-4 w-4" />
@@ -91,7 +91,7 @@ export function ResultsContent() {
 
 export function ResultsLoading() {
   return (
-    <div className="flex items-center justify-center py-20">
+    <div className="flex items-center justify-center py-14">
       <Loader2 className="h-8 w-8 animate-spin text-primary" />
     </div>
   );

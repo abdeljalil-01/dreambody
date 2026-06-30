@@ -49,16 +49,16 @@ export function TestimonialsSection() {
           className="text-center"
         >
           <span className="section-label">الآراء</span>
-          <h2 className="mt-5 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
+          <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
             ماذا يقول مستخدمونا
           </h2>
-          <p className="mx-auto mt-4 max-w-lg text-base text-muted-foreground">
+          <p className="mx-auto mt-3 max-w-lg text-base text-muted-foreground">
             تجارب حقيقية من أشخاص حققوا أهدافهم مع DreamBody
           </p>
         </motion.div>
 
         {/* Cards */}
-        <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {testimonials.map((item, i) => (
             <motion.div
               key={item.name}

@@ -7,7 +7,7 @@ const ResultsContent = dynamic(
   () => import("@/components/results/results-content").then((m) => m.ResultsContent),
   {
     loading: () => (
-      <div className="mx-auto max-w-5xl space-y-6 px-4 py-12">
+      <div className="mx-auto max-w-5xl space-y-5 px-4 py-8 sm:py-10">
         <Skeleton className="h-8 w-64" />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {Array.from({ length: 4 }).map((_, i) => (

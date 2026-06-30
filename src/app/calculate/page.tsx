@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 export default function CalculatePage() {
   return (
     <AppLayout>
-      <div className="container-app py-12">
+      <div className="container-app py-8 sm:py-10">
         <PageHeader
           title="احسب احتياجاتك"
           description="أدخل بياناتك للحصول على خطة غذائية دقيقة مبنية على معادلة Mifflin-St Jeor"

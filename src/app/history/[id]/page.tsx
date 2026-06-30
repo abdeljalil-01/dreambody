@@ -22,7 +22,7 @@ export default async function HistoryDetailPage({ params }: HistoryDetailPagePro
 
   return (
     <AppLayout>
-      <div className="container-app max-w-5xl py-12">
+      <div className="container-app max-w-5xl py-8 sm:py-10">
         <HistoryPlanDetail plan={plan} />
       </div>
     </AppLayout>

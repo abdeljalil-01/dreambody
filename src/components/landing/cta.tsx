@@ -14,7 +14,7 @@ export function CTASection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-60px" }}
           transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/8 via-card to-accent/40 p-14 text-center sm:p-20"
+          className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/8 via-card to-accent/40 p-8 text-center sm:p-12 lg:p-14"
         >
           {/* Background blobs inside card */}
           <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
@@ -30,18 +30,18 @@ export function CTASection() {
           </div>
 
           {/* Headline */}
-          <h2 className="relative mt-6 text-[clamp(1.8rem,4.5vw,3rem)] font-bold tracking-tight leading-tight">
+          <h2 className="relative mt-4 text-[clamp(1.8rem,4.5vw,3rem)] font-bold tracking-tight leading-tight">
             ابدأ رحلة تحولك{" "}
             <span className="text-gradient">اليوم</span>
           </h2>
 
           {/* Subtext */}
-          <p className="relative mx-auto mt-5 max-w-lg text-base leading-relaxed text-muted-foreground">
+          <p className="relative mx-auto mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
             سعرات اليوم، جسم الأحلام غداً. احسب احتياجاتك واحصل على برنامج غذائي مخصص في دقائق — بدون اشتراك.
           </p>
 
           {/* Buttons */}
-          <div className="relative mt-10 flex flex-wrap items-center justify-center gap-3">
+          <div className="relative mt-7 flex flex-wrap items-center justify-center gap-3">
             <Button
               size="lg"
               asChild
@@ -63,7 +63,7 @@ export function CTASection() {
           </div>
 
           {/* Social proof micro */}
-          <p className="relative mt-7 text-xs text-muted-foreground">
+          <p className="relative mt-5 text-xs text-muted-foreground">
             انضم لأكثر من{" "}
             <span className="font-semibold text-foreground">2,500 مستخدم</span>{" "}
             يثقون بـ DreamBody

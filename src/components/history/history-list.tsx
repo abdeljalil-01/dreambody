@@ -36,7 +36,7 @@ export function HistoryList({ plans: initialPlans }: HistoryListProps) {
 
   if (plans.length === 0) {
     return (
-      <div className="rounded-3xl border border-border/50 bg-card p-16 text-center shadow-premium">
+      <div className="rounded-3xl border border-border/50 bg-card p-10 text-center shadow-premium sm:p-12">
         <p className="text-muted-foreground">لا توجد برامج محفوظة بعد.</p>
         <Button asChild className="mt-6 rounded-2xl">
           <Link href="/calculate">إنشاء برنامج</Link>

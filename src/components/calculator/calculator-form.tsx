@@ -77,16 +77,16 @@ export function CalculatorForm() {
   }
 
   return (
-    <div className="rounded-3xl border border-border/50 bg-card p-8 shadow-premium sm:p-10">
-      <div className="mb-8 space-y-2">
+    <div className="rounded-3xl border border-border/50 bg-card p-6 shadow-premium sm:p-8">
+      <div className="mb-6 space-y-2">
         <h2 className="text-2xl font-semibold tracking-tight">حاسبة السعرات والماكروز</h2>
         <p className="text-sm text-muted-foreground">
           أدخل بياناتك للحصول على احتياجاتك الغذائية اليومية
         </p>
       </div>
 
-      <form onSubmit={handleSubmit(onSubmit)} className="space-y-8">
-        <div className="grid gap-6 sm:grid-cols-2">
+      <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid gap-5 sm:grid-cols-2">
           <div className="space-y-2">
             <Label htmlFor="age">العمر</Label>
             <Input id="age" type="number" inputMode="numeric" placeholder="25" className="font-inter h-12 rounded-2xl" {...register("age")} />

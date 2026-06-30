@@ -13,7 +13,7 @@ export default async function HistoryPage() {
 
   return (
     <AppLayout>
-      <div className="container-app max-w-3xl py-12">
+      <div className="container-app max-w-3xl py-8 sm:py-10">
         <PageHeader
           title="السجل"
           description="جميع برامجك الغذائية المحفوظة — اضغط على أي برنامج لعرض تفاصيله"
