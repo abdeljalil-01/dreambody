@@ -1,6 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
 import { Quote, Star } from "lucide-react";
 
 const testimonials = [
@@ -41,13 +38,7 @@ export function TestimonialsSection() {
 
       <div className="container-app relative">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center"
-        >
+        <div className="text-center">
           <span className="section-label">الآراء</span>
           <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
             ماذا يقول مستخدمونا
@@ -55,21 +46,13 @@ export function TestimonialsSection() {
           <p className="mx-auto mt-3 max-w-lg text-base text-muted-foreground">
             تجارب حقيقية من أشخاص حققوا أهدافهم مع DreamBody
           </p>
-        </motion.div>
+        </div>
 
         {/* Cards */}
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {testimonials.map((item, i) => (
-            <motion.div
+          {testimonials.map((item) => (
+            <div
               key={item.name}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                delay: i * 0.1,
-                duration: 0.55,
-                ease: [0.22, 1, 0.36, 1],
-              }}
               className="card-hover group relative overflow-hidden rounded-[1.4rem] border border-border/50 bg-card p-7 shadow-premium"
             >
               {/* Quote mark */}
@@ -107,7 +90,7 @@ export function TestimonialsSection() {
 
               {/* Bottom accent line */}
               <div className="absolute inset-x-0 bottom-0 h-[2px] origin-left scale-x-0 bg-gradient-to-r from-primary/40 via-primary/60 to-transparent transition-transform duration-500 group-hover:scale-x-100 rounded-b-full" />
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

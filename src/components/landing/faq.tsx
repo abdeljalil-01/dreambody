@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Plus, Minus } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -42,13 +41,7 @@ export function FAQSection() {
 
       <div className="container-app relative">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center"
-        >
+        <div className="text-center">
           <span className="section-label">الأسئلة</span>
           <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
             الأسئلة الشائعة
@@ -56,19 +49,15 @@ export function FAQSection() {
           <p className="mx-auto mt-3 max-w-lg text-base text-muted-foreground">
             إجابات على أكثر الأسئلة شيوعاً — إذا لم تجد ما تبحث عنه، تواصل معنا.
           </p>
-        </motion.div>
+        </div>
 
         {/* Accordion */}
         <div className="mx-auto mt-10 max-w-2xl space-y-3">
           {faqs.map((faq, index) => {
             const isOpen = openIndex === index;
             return (
-              <motion.div
+              <div
                 key={faq.question}
-                initial={{ opacity: 0, y: 16 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true, margin: "-30px" }}
-                transition={{ delay: index * 0.06, duration: 0.45, ease: "easeOut" }}
                 className={cn(
                   "overflow-hidden rounded-[1.1rem] border transition-all duration-300",
                   isOpen
@@ -105,22 +94,14 @@ export function FAQSection() {
                   </div>
                 </button>
 
-                <AnimatePresence initial={false}>
-                  {isOpen && (
-                    <motion.div
-                      key="content"
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: "auto", opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
-                    >
-                      <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
-                        {faq.answer}
-                      </p>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+                {isOpen && (
+                  <div>
+                    <p className="px-5 pb-5 text-sm leading-relaxed text-muted-foreground">
+                      {faq.answer}
+                    </p>
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>

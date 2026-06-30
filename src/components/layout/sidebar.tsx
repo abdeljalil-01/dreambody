@@ -10,7 +10,6 @@ import {
   Salad,
   User,
 } from "lucide-react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { signOutAction } from "@/lib/actions/auth";
 
@@ -45,20 +44,12 @@ export function Sidebar() {
             >
               {/* Active background */}
               {isActive && (
-                <motion.div
-                  layoutId="sidebar-active"
-                  className="absolute inset-0 rounded-[0.875rem] bg-primary/10 shadow-sm"
-                  transition={{ type: "spring", stiffness: 380, damping: 35 }}
-                />
+                <div className="absolute inset-0 rounded-[0.875rem] bg-primary/10 shadow-sm" />
               )}
 
               {/* Active left bar */}
               {isActive && (
-                <motion.div
-                  layoutId="sidebar-bar"
-                  className="absolute right-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-l-full bg-primary"
-                  transition={{ type: "spring", stiffness: 380, damping: 35 }}
-                />
+                <div className="absolute right-0 top-1/2 h-5 w-[3px] -translate-y-1/2 rounded-l-full bg-primary" />
               )}
 
               <Icon
@@ -107,11 +98,7 @@ export function MobileNav() {
               )}
             >
               {isActive && (
-                <motion.div
-                  layoutId="mobile-nav-active"
-                  className="absolute inset-0 rounded-xl bg-primary/10"
-                  transition={{ type: "spring", stiffness: 380, damping: 35 }}
-                />
+                <div className="absolute inset-0 rounded-xl bg-primary/10" />
               )}
               <Icon className="relative h-5 w-5" />
               <span className="relative">{link.label}</span>

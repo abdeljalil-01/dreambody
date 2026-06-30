@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { LoginForm } from "@/components/auth/auth-forms";
 import { Navbar } from "@/components/layout/navbar";
 import { Skeleton } from "@/components/ui/skeleton";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "تسجيل الدخول",
@@ -21,6 +22,7 @@ export default function LoginPage() {
           <LoginForm />
         </Suspense>
       </main>
+      <Toaster />
     </div>
   );
 }

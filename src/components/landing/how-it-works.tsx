@@ -1,7 +1,3 @@
-"use client";
-
-import { motion } from "framer-motion";
-
 const steps = [
   {
     step: "01",
@@ -46,13 +42,7 @@ export function HowItWorksSection() {
 
       <div className="container-app relative">
         {/* Header */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] }}
-          className="text-center"
-        >
+        <div className="text-center">
           <span className="section-label">الخطوات</span>
           <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold tracking-tight">
             كيف يعمل؟
@@ -60,21 +50,13 @@ export function HowItWorksSection() {
           <p className="mx-auto mt-3 max-w-lg text-base leading-relaxed text-muted-foreground">
             أربع خطوات بسيطة تفصلك عن جسم أحلامك
           </p>
-        </motion.div>
+        </div>
 
         {/* Steps */}
         <div className="mt-10 grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
           {steps.map((item, index) => (
-            <motion.div
+            <div
               key={item.step}
-              initial={{ opacity: 0, y: 28 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-40px" }}
-              transition={{
-                delay: index * 0.1,
-                duration: 0.55,
-                ease: [0.22, 1, 0.36, 1],
-              }}
               className="group relative"
             >
               {/* Connector line (desktop) */}
@@ -97,12 +79,7 @@ export function HowItWorksSection() {
                     >
                       {item.step}
                     </span>
-                    <motion.div
-                      className={`absolute -inset-3 rounded-full ${item.color} opacity-[0.06]`}
-                      whileInView={{ scale: [1, 1.3, 1] }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 1.5, ease: "easeInOut", delay: index * 0.15 }}
-                    />
+                    <div className={`absolute -inset-3 rounded-full ${item.color} opacity-[0.06]`} />
                   </div>
                   {/* Thin decorative line */}
                   <div className={`h-px flex-1 bg-current ${item.color} opacity-15`} />
@@ -118,7 +95,7 @@ export function HowItWorksSection() {
                   className={`absolute -bottom-4 -right-4 h-16 w-16 rounded-full ${item.color} opacity-[0.06] transition-transform duration-500 group-hover:scale-150`}
                 />
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

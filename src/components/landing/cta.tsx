@@ -1,7 +1,4 @@
-"use client";
-
 import Link from "next/link";
-import { motion } from "framer-motion";
 import { ArrowLeft, Sparkles } from "lucide-react";
 import { Button } from "@/components/ui/button";
 
@@ -9,13 +6,7 @@ export function CTASection() {
   return (
     <section className="section-padding relative overflow-hidden">
       <div className="container-app">
-        <motion.div
-          initial={{ opacity: 0, y: 32 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-60px" }}
-          transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-          className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/8 via-card to-accent/40 p-8 text-center sm:p-12 lg:p-14"
-        >
+        <div className="relative overflow-hidden rounded-[2rem] border border-primary/20 bg-gradient-to-br from-primary/8 via-card to-accent/40 p-8 text-center sm:p-12 lg:p-14">
           {/* Background blobs inside card */}
           <div className="pointer-events-none absolute -top-24 -right-24 h-64 w-64 rounded-full bg-primary/10 blur-3xl" />
           <div className="pointer-events-none absolute -bottom-16 -left-16 h-48 w-48 rounded-full bg-secondary/10 blur-3xl" />
@@ -68,7 +59,7 @@ export function CTASection() {
             <span className="font-semibold text-foreground">2,500 مستخدم</span>{" "}
             يثقون بـ DreamBody
           </p>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

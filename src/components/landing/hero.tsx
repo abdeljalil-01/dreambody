@@ -1,11 +1,7 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { motion, useScroll, useTransform, useMotionValue, useSpring } from "framer-motion";
 import { ArrowLeft, Sparkles, TrendingUp, Users } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { useRef, useEffect } from "react";
 
 const stats = [
   { value: "2,500+", label: "مستخدم نشط", icon: Users },
@@ -21,43 +17,14 @@ const floatingPills = [
 ];
 
 export function HeroSection() {
-  const ref = useRef<HTMLElement>(null);
-  const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
-  const y = useTransform(scrollYProgress, [0, 1], ["0%", "25%"]);
-  const opacity = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
-  const mouseX = useMotionValue(0.5);
-  const mouseY = useMotionValue(0.5);
-  const smoothX = useSpring(mouseX, { stiffness: 150, damping: 20 });
-  const smoothY = useSpring(mouseY, { stiffness: 150, damping: 20 });
-
-  useEffect(() => {
-    const handleMouse = (e: MouseEvent) => {
-      if (!ref.current) return;
-      const rect = ref.current.getBoundingClientRect();
-      mouseX.set((e.clientX - rect.left) / rect.width);
-      mouseY.set((e.clientY - rect.top) / rect.height);
-    };
-    window.addEventListener("mousemove", handleMouse, { passive: true });
-    return () => window.removeEventListener("mousemove", handleMouse);
-  }, [mouseX, mouseY]);
-
   return (
-    <section ref={ref} className="relative flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden">
+    <section className="relative flex min-h-[calc(100svh-4.5rem)] items-center overflow-hidden">
       {/* Background blobs */}
-      <motion.div style={{ y, opacity }} className="pointer-events-none absolute inset-0">
-        <motion.div
-          className="blob-bg -top-40 -right-40 h-[36rem] w-[36rem] bg-primary/[0.07]"
-          style={{ x: useTransform(smoothX, [0, 1], [-20, 20]), y: useTransform(smoothY, [0, 1], [-20, 20]) }}
-        />
-        <motion.div
-          className="blob-bg bottom-0 -left-32 h-80 w-80 bg-secondary/[0.06]"
-          style={{ x: useTransform(smoothX, [0, 1], [15, -15]), y: useTransform(smoothY, [0, 1], [10, -10]) }}
-        />
-        <motion.div
-          className="blob-bg top-1/3 left-1/2 h-48 w-48 bg-primary/[0.04]"
-          style={{ x: useTransform(smoothX, [0, 1], [-10, 10]), y: useTransform(smoothY, [0, 1], [-8, 8]) }}
-        />
-      </motion.div>
+      <div className="pointer-events-none absolute inset-0">
+        <div className="blob-bg -top-40 -right-40 h-[36rem] w-[36rem] bg-primary/[0.07]" />
+        <div className="blob-bg bottom-0 -left-32 h-80 w-80 bg-secondary/[0.06]" />
+        <div className="blob-bg top-1/3 left-1/2 h-48 w-48 bg-primary/[0.04]" />
+      </div>
 
       {/* Subtle grid */}
       <div
@@ -72,22 +39,12 @@ export function HeroSection() {
       <div className="container-app relative py-16 sm:py-20 lg:py-24">
         <div className="grid items-center gap-10 lg:grid-cols-[1.1fr_0.9fr] lg:gap-12">
           {/* Left: text */}
-          <motion.div
-            initial={{ opacity: 0, y: 32 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
-            className="space-y-6"
-          >
+          <div className="space-y-6">
             {/* Badge */}
-            <motion.div
-              initial={{ opacity: 0, scale: 0.9 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: 0.1 }}
-              className="section-label"
-            >
+            <div className="section-label">
               <Sparkles className="h-3 w-3" />
               تغذية ذكية · برامج مخصصة بالذكاء الاصطناعي
-            </motion.div>
+            </div>
 
             {/* Headline */}
             <div className="space-y-4">
@@ -142,12 +99,9 @@ export function HeroSection() {
 
             {/* Stats row */}
             <div className="flex flex-wrap items-center gap-x-8 gap-y-4 border-t border-border/50 pt-5">
-              {stats.map((stat, i) => (
-                <motion.div
+              {stats.map((stat) => (
+                <div
                   key={stat.label}
-                  initial={{ opacity: 0, y: 10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.5 + i * 0.1, duration: 0.5 }}
                   className="flex items-center gap-2.5"
                 >
                   <div className="flex h-8 w-8 items-center justify-center rounded-xl bg-primary/10 text-primary">
@@ -159,18 +113,13 @@ export function HeroSection() {
                     </p>
                     <p className="mt-0.5 text-[11px] text-muted-foreground">{stat.label}</p>
                   </div>
-                </motion.div>
+                </div>
               ))}
             </div>
-          </motion.div>
+          </div>
 
           {/* Right: visual card */}
-          <motion.div
-            initial={{ opacity: 0, scale: 0.94, y: 20 }}
-            animate={{ opacity: 1, scale: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.18, ease: [0.22, 1, 0.36, 1] }}
-            className="relative lg:mr-auto lg:max-w-[440px] w-full"
-          >
+          <div className="relative lg:mr-auto lg:max-w-[440px] w-full">
             {/* Glow behind card */}
             <div className="absolute inset-0 rounded-[2.5rem] bg-primary/10 blur-3xl scale-90" />
 
@@ -188,6 +137,7 @@ export function HeroSection() {
                   height={160}
                   className="object-contain drop-shadow-lg"
                   priority
+                  sizes="160px"
                 />
               </div>
 
@@ -221,11 +171,8 @@ export function HeroSection() {
 
             {/* Floating pills */}
             {floatingPills.map((pill, i) => (
-              <motion.div
+              <div
                 key={pill.text}
-                initial={{ opacity: 0, scale: 0.8 }}
-                animate={{ opacity: 1, scale: 1 }}
-                transition={{ delay: 0.6 + pill.delay, duration: 0.4 }}
                 className={`absolute animate-float rounded-full border px-3 py-1.5 text-xs font-semibold shadow-md ${pill.color}`}
                 style={{
                   top: i === 0 ? "-1rem" : i === 1 ? "38%" : i === 2 ? "72%" : "88%",
@@ -236,9 +183,9 @@ export function HeroSection() {
                 }}
               >
                 {pill.text}
-              </motion.div>
+              </div>
             ))}
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

@@ -1,8 +1,3 @@
-"use client";
-
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import type { Variants } from "framer-motion";
-import { useRef, useEffect } from "react";
 import {
   BarChart3, Brain, Calculator, RefreshCw, Salad, Shield,
 } from "lucide-react";
@@ -76,52 +71,11 @@ const features: Feature[] = [
   },
 ];
 
-const container: Variants = {
-  hidden: {},
-  show: { transition: { staggerChildren: 0.08 } },
-};
-
-const item: Variants = {
-  hidden: { opacity: 0, y: 24 },
-  show: {
-    opacity: 1,
-    y: 0,
-    transition: {
-      duration: 0.55,
-      ease: [0.22, 1, 0.36, 1] as [number, number, number, number],
-    },
-  },
-};
-
-// ── FeatureCard — hooks هنا فوق، مشكل حل ✅ ──────────
 function FeatureCard({ feature, idx }: { feature: Feature; idx: number }) {
   const Icon = feature.icon;
 
-  const cardRef = useRef<HTMLDivElement>(null);
-  const fMouseX = useMotionValue(0.5);
-  const fMouseY = useMotionValue(0.5);
-  const fSmoothX = useSpring(fMouseX, { stiffness: 80, damping: 15 });
-  const fSmoothY = useSpring(fMouseY, { stiffness: 80, damping: 15 });
-
-  const glowLeft = useTransform(fSmoothX, [0, 1], [-20, 20], { clamp: true });
-  const glowTop  = useTransform(fSmoothY, [0, 1], [-20, 20], { clamp: true });
-
-  useEffect(() => {
-    const el = cardRef.current;
-    if (!el) return;
-    const handleMove = (e: MouseEvent) => {
-      const rect = el.getBoundingClientRect();
-      fMouseX.set((e.clientX - rect.left) / rect.width);
-      fMouseY.set((e.clientY - rect.top) / rect.height);
-    };
-    el.addEventListener("mousemove", handleMove, { passive: true });
-    return () => el.removeEventListener("mousemove", handleMove);
-  }, [fMouseX, fMouseY]);
-
   return (
-    <motion.div
-      ref={cardRef}
-      variants={item}
+    <div
       className={`feature-card card-hover group relative overflow-hidden rounded-[1.4rem] border border-border/50 bg-gradient-to-br ${feature.accent} p-7 ${feature.span}`}
     >
       {/* Corner ornaments */}
@@ -129,10 +83,7 @@ function FeatureCard({ feature, idx }: { feature: Feature; idx: number }) {
       <div className="corner-ornament corner-ornament--br text-primary/30" />
 
       {/* Parallax glow */}
-      <motion.div
-        className="pointer-events-none absolute -inset-12 rounded-full bg-primary/[0.04] blur-3xl"
-        style={{ left: glowLeft, top: glowTop }}
-      />
+      <div className="pointer-events-none absolute -inset-12 rounded-full bg-primary/[0.04] blur-3xl" />
 
       <div
         className={`mb-5 inline-flex items-center justify-center rounded-[0.875rem] p-3 ${feature.iconBg} transition-all duration-300 group-hover:scale-110 group-hover:shadow-md`}
@@ -152,7 +103,7 @@ function FeatureCard({ feature, idx }: { feature: Feature; idx: number }) {
       <div className="absolute left-4 top-4 select-none text-[4rem] font-black leading-none text-foreground/[0.025] transition-all duration-500 group-hover:scale-110 group-hover:opacity-[0.04]">
         {String(idx + 1).padStart(2, "0")}
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -163,13 +114,7 @@ export function FeaturesSection() {
       <div className="pointer-events-none absolute right-0 top-0 h-96 w-96 rounded-full bg-primary/[0.035] blur-3xl" />
 
       <div className="container-app relative">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-80px" }}
-          transition={{ duration: 0.6, ease: [0.22, 1, 0.36, 1] as [number, number, number, number] }}
-          className="max-w-2xl"
-        >
+        <div className="max-w-2xl">
           <span className="section-label">المميزات</span>
           <h2 className="mt-3 text-[clamp(1.8rem,4vw,2.75rem)] font-bold leading-tight tracking-tight">
             أدوات متكاملة{" "}
@@ -178,19 +123,13 @@ export function FeaturesSection() {
           <p className="mt-3 text-base leading-relaxed text-muted-foreground">
             كل ما تحتاجه في منصة واحدة — مصممة بعناية لتجربة سلسة وفعّالة.
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          variants={container}
-          initial="hidden"
-          whileInView="show"
-          viewport={{ once: true, margin: "-60px" }}
-          className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3"
-        >
+        <div className="mt-10 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
           {features.map((feature, idx) => (
             <FeatureCard key={feature.title} feature={feature} idx={idx} />
           ))}
-        </motion.div>
+        </div>
       </div>
     </section>
   );

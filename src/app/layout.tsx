@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Cairo, IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
 import { headers } from "next/headers";
 import { ThemeProvider } from "@/components/providers/theme-provider";
-import { Toaster } from "@/components/ui/sonner";
 import { APP_NAME, APP_TAGLINE } from "@/lib/constants";
 import "./globals.css";
 
@@ -17,12 +16,14 @@ const ibmPlex = IBM_Plex_Sans_Arabic({
   weight: ["400", "600", "700"],
   variable: "--font-ibm",
   display: "swap",
+  preload: false,
 });
 
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
   display: "swap",
+  preload: false,
 });
 
 export const metadata: Metadata = {
@@ -77,7 +78,6 @@ export default async function RootLayout({
           nonce={nonce}
         >
           {children}
-          <Toaster />
         </ThemeProvider>
       </body>
     </html>

@@ -6,6 +6,7 @@ interface LogoProps {
   className?: string;
   showText?: boolean;
   size?: "sm" | "md" | "lg";
+  priority?: boolean;
 }
 
 const sizes = {
@@ -14,7 +15,7 @@ const sizes = {
   lg: { width: 56, height: 56 },
 };
 
-export function Logo({ className, showText = true, size = "md" }: LogoProps) {
+export function Logo({ className, showText = true, size = "md", priority = false }: LogoProps) {
   const dim = sizes[size];
 
   return (
@@ -25,7 +26,8 @@ export function Logo({ className, showText = true, size = "md" }: LogoProps) {
         width={dim.width}
         height={dim.height}
         className="object-contain"
-        priority
+        priority={priority}
+        sizes={`${dim.width}px`}
       />
       {showText && (
         <span className="font-inter text-lg font-bold tracking-tight">

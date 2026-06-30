@@ -1,5 +1,6 @@
 import { Navbar } from "@/components/layout/navbar";
 import { Sidebar, MobileNav } from "@/components/layout/sidebar";
+import { Toaster } from "@/components/ui/sonner";
 
 export function AppLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -10,6 +11,7 @@ export function AppLayout({ children }: { children: React.ReactNode }) {
         <Sidebar />
       </div>
       <MobileNav />
+      <Toaster />
     </div>
   );
 }
