@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Cairo, IBM_Plex_Sans_Arabic, Inter } from "next/font/google";
+import { headers } from "next/headers";
 import { ThemeProvider } from "@/components/providers/theme-provider";
 import { Toaster } from "@/components/ui/sonner";
 import { APP_NAME, APP_TAGLINE } from "@/lib/constants";
@@ -56,17 +57,25 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const nonce = (await headers()).get("x-nonce") ?? undefined;
+
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <body
         className={`${cairo.variable} ${ibmPlex.variable} ${inter.variable} min-h-screen antialiased`}
       >
-        <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="light"
+          enableSystem
+          disableTransitionOnChange
+          nonce={nonce}
+        >
           {children}
           <Toaster />
         </ThemeProvider>
